@@ -1,1 +1,3 @@
-# find_serptakip_words_order
+serptakip is a program that determines the order of keywords. I developed this project for my current job, and the program operates in Python. It shows the page and position of keywords from serp tracking websites in the Google search engine. With this project, my two colleagues can complete the work for a total of 60 SEO clients in one day, which amounts to an average of 16 hours for two people. This program is capable of finishing the same task that they do in 30 minutes, if done by a single person.
+
+The working principle of the program is as follows: The Serptakip website provides the keywords and their page rankings of the desired site in a PDF format, but it is in a complex form. With the program I developed, the existing PDF is obtained, processed, the complex page rank numbers are extracted, processed, and the result is written to an Excel file
