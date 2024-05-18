@@ -24,16 +24,15 @@ def verileri_listele(dosya_yolu):
 
     basliklar = [baslik for baslik in basliklar if baslik not in ["Kelime Raporu", "ANAHTAR KELİMELER", "SIRA"]]
 
-    # Başlıkları Excel sayfasına ekle
+    # Insert headings in Excel sheet
     for col, baslik in enumerate(basliklar, start=1):
         ws.cell(row=1, column=1, value=baslik)
 
-    # Verileri Excel sayfasına ekle
+    # Insert data into Excel sheet
     for row, satir in enumerate(satirlar[1:], start=2):
         veri = satir.split("\t")
         for col, sütun in enumerate(veri, start=1):
             if not any(char in sütun for char in ["(", ")", ".","/", "SIRA"]):
-                # Değişiklik: Sayı içeren sütunları bul
                 if re.match(r'^\d+$', sütun):
                     sayfa, sira = sayfa_sira_bul(int(sütun))
                     if sütun.endswith('"'):
@@ -53,12 +52,12 @@ def sayfa_sira_bul(sayi):
     sira = (sayi - 1) % 10 + 1
     return sayfa, sira
 
-# Ana pencereyi oluştur
+#Main window
 pencere = tk.Tk()
 pencere.title("PDF Dosyası Seçme Programı")
 pencere.geometry("600x400")
 
-# Dosya açma düğmesini oluştur
+# File open button
 dosya_ac_dugme = tk.Button(pencere, text="PDF Dosyası Aç", command=dosya_ac)
 dosya_ac_dugme.pack(pady=10)
 dosya_yolu_etiketi = tk.Label(pencere, text="Seçilen Dosya: ")
